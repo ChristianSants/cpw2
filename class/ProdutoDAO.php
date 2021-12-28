@@ -70,6 +70,28 @@ class ProdutoDAO extends Conexao{
         }
     }
 
+    public function update(){
+        $sql = "
+            UPDATE produtos
+            SET nome = ?, 
+                qnt = ?
+            WHERE id = ?
+        ";
+         
+        $prepare = $this->conectaMySQL()->prepare($sql);   
+
+        $prepare->bindValue(1, $this->objProduto->getNome());
+        $prepare->bindValue(2, $this->objProduto->getQnt());
+        $prepare->bindValue(3, $this->objProduto->getId());
+        
+        try{
+            return $prepare->execute();
+        }catch(Exception $e){
+            echo $e->getMessage();
+            die();
+        }
+    }
+
     /*
     public function findUsuarioByUser($user){
         $sql = "

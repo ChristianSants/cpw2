@@ -1,0 +1,46 @@
+.icone{
+    color: rgb(40, 115, 214);
+    font-size: 20px;
+}
+.icone:hover{
+    cursor: pointer;
+    color: rgba(40, 115, 214, 0.75) !important;
+}
+
+.salvar{
+    color: rgb(50, 163, 60);
+    font-size: 20px;
+}
+.salvar:hover{
+    cursor: pointer;
+    color: rgba(50, 163, 60, 0.75) !important;
+}
+
+
+ .alert{
+    margin-bottom: 0px !important;
+ }
+
+ .icone.disabled,
+ .icone:disabled{
+    color: rgba(40, 115, 214, 0.508);
+    font-size: 20px;
+ }
+
+ .icone.disabled:hover,
+ .icone:disabled:hover{
+    cursor: auto;
+    color: rgba(40, 115, 214, 0.508) !important;
+}
+
+ /* Calendário */
+ td.in-range {
+    background-color: #2097ca52 !important;
+    border-color: transparent; 
+    color: #000;
+    border-radius: 0;
+}
+
+td.end-date {
+    background-color: #357ebd !important;
+}
