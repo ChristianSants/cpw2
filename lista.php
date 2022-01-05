@@ -30,8 +30,8 @@
                 <thead>
                     <tr class="text-gray-900 bg-primary text-white">
                         <th class="align-middle text-center" style="width: 5%;">ID</th>
-                        <th class="align-middle text-center">Quantidade</th>
                         <th class="align-middle text-center">Nome</th>
+                        <th class="align-middle text-center">Quantidade</th>
                         <th class="align-middle text-center">Tipo</th>
                         <th class="align-middle text-center">Opções</th>
                     </tr>

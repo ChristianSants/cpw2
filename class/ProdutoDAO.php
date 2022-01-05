@@ -92,33 +92,6 @@ class ProdutoDAO extends Conexao{
         }
     }
 
-    /*
-    public function findUsuarioByUser($user){
-        $sql = "
-            SELECT *
-            FROM usuario
-            WHERE user = ?
-            ORDER BY id DESC
-        ";
-
-        $prepare = $this->conectaMySQL()->prepare($sql); 
-        $prepare->bindParam(1, $user);
-        $prepare->execute();
-
-        $array = [];
-
-        foreach($prepare->fetchAll() as $valor){
-
-            $objTipoRetorno = new Usuario($valor['user'], $valor['pass'], $valor['cpf'], $valor['salt']);
-            $objTipoRetorno->setId($valor['id']);
-
-            array_push($array, $objTipoRetorno);
-        }
-
-        return $array;
-    }
-    */
-
 }
 
 ?>

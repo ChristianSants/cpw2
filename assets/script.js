@@ -46,6 +46,8 @@ function cadastrar(){
 }
 
 function listar(){
+    // corDeFundo()
+
     let tbody = document.getElementsByClassName('corpo-tabela')[0]
     tbody.innerHTML = ""
 
@@ -171,23 +173,10 @@ function excluir(idNew){
     } 
 }
 
-function editar(tr, qnt, nome, tipo){
-
-    // tr.childNodes[4].removeChild(tr.childNodes[4].childNodes[0])
+function editar(tr, qnt, nome){
     tr.childNodes[4].innerHTML = '<i class="fa fa-save salvar" onclick="atualizar(this)"></i>'
-
-    // tr.appendChild()
-
     tr.childNodes[1].innerHTML = '<input value="'+nome+'" class="form-control  text-center" ></input>'     
-    tr.childNodes[2].innerHTML = '<input value="'+qnt+'" class="form-control  text-center" ></input>' 
-    // tr.childNodes[3].innerHTML = '<select class="form-select"  name="tipoEdt" id="tipoEdt">' +
-    //                                 '<option value="Roupa" '+ (tipo == 'Roupa' ? 'selected' : '' )+' >Roupa</option>' + 
-    //                                 '<option value="Móveis" '+ tipo == 'Móveis' ? 'selected' : '' +' >Móveis</option>' +
-    //                                 '<option value="Eletrônico" '+ tipo == 'Eletrônico' ? 'selected' : '' +' >Eletrônico</option>' +
-    //                             '</select>' ;
-
-
-
+    tr.childNodes[2].innerHTML = '<input value="'+qnt+'" class="form-control  text-center" ></input>'
 }
 
 function atualizar(componente){
@@ -195,17 +184,13 @@ function atualizar(componente){
     let id = tr.childNodes[0].childNodes[0].textContent
     let nome = tr.childNodes[1].childNodes[0].value
     let qnt = tr.childNodes[2].childNodes[0].value
-    // let tipo = tr.childNodes[3].childNodes[0].value
-    // console.log(id)
+
     tr.childNodes[1].innerHTML = ''
     tr.childNodes[2].innerHTML = ''
-    // tr.childNodes[3].innerHTML = ''
     tr.childNodes[4].innerHTML = ''
 
     tr.childNodes[1].textContent = qnt
     tr.childNodes[2].textContent = nome
-    // tr.childNodes[3].textContent = tipo
-
 
     // Exemplo de requisição POST
     var ajax = new XMLHttpRequest();
@@ -237,7 +222,7 @@ function atualizar(componente){
             if(data == 1){
                 listar()
                 divMsg.className = "alert alert-success mt-2"
-                divMsg.textContent = "Produto excluido com Sucesso!"
+                divMsg.textContent = "Produto atualizado com Sucesso!"
                 div.appendChild(divMsg)
 
                 // trazendo os icones antigos
@@ -251,12 +236,10 @@ function atualizar(componente){
                 //interações
                 tagEditar.addEventListener('click', function(){
                     let trThis = this.parentNode.parentNode
-                    let valorId = trThis.childNodes[0].textContent
                     let valorNome = trThis.childNodes[1].textContent
                     let valorQnt = trThis.childNodes[2].textContent
-                    let valorTipo = trThis.childNodes[3].textContent
 
-                    editar(trThis, valorId, valorQnt, valorNome, valorTipo)
+                    editar(trThis, valorQnt, valorNome)
                 })
                 tagExcluir.addEventListener('click', function(){
                     let trThis = this.parentNode.parentNode
@@ -272,6 +255,5 @@ function atualizar(componente){
 
         }
     } 
-
 
 }
